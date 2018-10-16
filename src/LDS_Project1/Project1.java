@@ -17,6 +17,7 @@ class Project1 {
     static final String ANSI_RED = "\u001B[31m";
     static final String ANSI_CYAN = "\u001B[36m";
     static final String ANSI_YELLOW = "\u001B[33m";
+    static final String ANSI_WHITE = "\u001B[37m";
 
     private static final String filePath = "src/Project1TestData.txt";
 
