@@ -16,6 +16,7 @@ class FileUtilities {
     private static String ANSI_RED = Project1.ANSI_RED;
     private static String ANSI_YELLOW = Project1.ANSI_YELLOW;
     private static String ANSI_CYAN = Project1.ANSI_CYAN;
+    private static String ANSI_WHITE = Project1.ANSI_WHITE;
 
 
     /**
@@ -85,14 +86,15 @@ class FileUtilities {
      * and raw pairing data for debugging purposes. Uses cyan text to differentiate
      * from errors, exceptions, and desired data.
      *
-     * @param pairingSize
-     * @param pairingData
+     * @param pairingSize   the desired pairing size for the
+     * @param pairingData   arrayList full of data from the input file
      */
     static void testCurrentData(int pairingSize, ArrayList pairingData){
         System.out.println(ANSI_CYAN + "Pairing Size = " + pairingSize);
+        System.out.println("Array Data:");
         if (pairingData != null) {
-            for(int i = 0 ; i <pairingData.size(); i++){
-                System.out.println(pairingData.get(i));
+            for(int i = 0 ; i < pairingData.size(); i++){
+                System.out.println(ANSI_WHITE + "\t- " + pairingData.get(i));
             }
         }
 
