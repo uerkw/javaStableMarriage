@@ -83,7 +83,8 @@ class FileUtilities {
     /**
      * A test method, made with the idea in mind to quickly print out the pairing size
      * and raw pairing data for debugging purposes. Uses cyan text to differentiate
-     * between errors, exceptions, and desired data.
+     * from errors, exceptions, and desired data.
+     *
      * @param pairingSize
      * @param pairingData
      */
