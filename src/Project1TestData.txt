@@ -1,0 +1,17 @@
+4
+Bob
+3	0	1	2
+Becky
+1	2	0	3
+Barbara
+1	3	2	0
+Bubba
+2	0	3	1
+Donna
+3	0	2	1
+Dean
+0	2	1	3
+Diana
+0	1	2	4
+Duke
+3	0	2	1
