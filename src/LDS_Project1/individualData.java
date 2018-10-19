@@ -9,21 +9,21 @@ import java.util.ArrayList;
  * A class to construct a simple object containing the name and preferences
  * of each desired person. Also contains getter methods for these parameters.
  */
-public class individualData {
+class individualData {
 
     private String name;
-    private ArrayList preferences;
+    private int[] preferences;
 
-    public individualData(String Name, ArrayList preferences){
+    individualData(String Name, int[] preferences){
         this.name = Name;
         this.preferences = preferences;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public ArrayList getPreferences() {
+    int[] getPreferences() {
         return preferences;
     }
 
