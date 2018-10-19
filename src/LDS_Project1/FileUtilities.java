@@ -8,10 +8,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// EECS 2500, Project1
-// Written by Kyle Uerkwitz
-
 /**
+ * @author Kyle Uerkwitz
+ * @version 1.0
+ * Originally written for the EECS 2500 course at the University of Toledo
+ *
  *  A collection of useful methods for reading and creating data from
  *  the given test file.
  */

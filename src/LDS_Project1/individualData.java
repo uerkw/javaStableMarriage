@@ -2,10 +2,11 @@ package LDS_Project1;
 
 import java.util.ArrayList;
 
-// EECS 2500, Project1
-// Written by Kyle Uerkwitz
-
 /**
+ * @author Kyle Uerkwitz
+ * @version 1.0
+ * Originally written for the EECS 2500 course at the University of Toledo
+ *
  * A class to construct a simple object containing the name and preferences
  * of each desired person. Also contains getter methods for these parameters.
  */
