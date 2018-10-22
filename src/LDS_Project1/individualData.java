@@ -1,7 +1,5 @@
 package LDS_Project1;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 /**
  * @author Kyle Uerkwitz

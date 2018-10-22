@@ -3,7 +3,6 @@ package LDS_Project1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -48,7 +47,6 @@ class Project1 {
             ArrayList<individualData> groupB = new ArrayList<>();
 
             // Copying each half of the array into its respective group
-            // TODO: Possible array copying optimization
             for(int i = 0; i < (pairingSize); i++)
                 groupA.add(initPairingData[i]);
             for(int i = (pairingSize); i < pairingSize*2; i++)
