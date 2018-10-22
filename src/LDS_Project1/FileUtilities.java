@@ -135,8 +135,8 @@ class FileUtilities {
                 ArrayList<individualData> pair = pairingData.get(i);
                 individualData person1 = pair.get(1);
                 individualData person2= pair.get(0);
-                System.out.println(ANSI_WHITE + "Pair " + (i+1) + ": " + (person1.getName()) +
-                    ", and " + person2.getName());
+                System.out.println(ANSI_WHITE + "Team " + (i+1) + ": " + (person1.getName()) +
+                    " and " + person2.getName());
 
                     }
             }
