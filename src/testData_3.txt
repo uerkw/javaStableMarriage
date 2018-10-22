@@ -1,0 +1,25 @@
+6
+Bob
+3	0	1	2	4	5
+Becky
+1	2	0	3	4	5
+Barbara
+1	3	2	0	4	5
+Bubba
+2	0	3	1	4	5
+Barry
+5	4	3	2	1	0
+Bartholemew
+5	4	3	2	0	1
+Donna
+3	0	2	1	4	5
+Dean
+0	2	1	3	4	5
+Diana
+0	1	2	3	4	5
+Duke
+3	0	2	1	4	5
+Darryl
+5	4	3	2	0	1
+Dimitry
+5	4	3	2	1	0
