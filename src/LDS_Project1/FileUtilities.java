@@ -104,18 +104,41 @@ class FileUtilities {
      * @param pairingSize   the desired pairing size for the file
      * @param pairingData   array full of data from the input file
      */
-    static void testCurrentData(int pairingSize, individualData[] pairingData){
+    static void testCurrentData(int pairingSize, ArrayList<individualData> pairingData){
         System.out.println(ANSI_CYAN + "Pairing Size = " + pairingSize);
         System.out.println("Array Data:");
-        int dataSize = Array.getLength(pairingData);
+        int dataSize = pairingData.size();
         if (pairingData != null) {
             for(int i = 0; i < dataSize; i++){
-                System.out.println(ANSI_WHITE + (pairingData[i].getName()));
+                System.out.println(ANSI_WHITE + (pairingData.get(i).getName()));
                 for(int j = 0; j < pairingSize; j++ ) {
-                    System.out.print(ANSI_WHITE + (pairingData[i].getPreferences())[j] + " ");
+                    System.out.print(ANSI_WHITE + (pairingData.get(i).getPreferences())[j] + " ");
                 }
                 System.out.println("");
             }
         }
+    }
+    /**
+     * Deriving from testCurrentData, this method provides a way to easily print the final data given in one ArrayList.
+     * Uses cyan text to differentiate from errors, exceptions, and desired data.
+     *
+     * @param pairingSize   the desired pairing size for the file
+     * @param pairingData   array composing of two ArrayLists (one for each group) holding the member's data.
+     */
+    static void printFinalData(int pairingSize, ArrayList<ArrayList<individualData>> pairingData){
+        System.out.println();
+
+        System.out.println(ANSI_CYAN+ "Completed Pairing Data: ");
+        int dataSize = pairingData.size();
+        if (pairingData != null) {
+            for(int i = 0; i < dataSize; i++){
+                ArrayList<individualData> pair = pairingData.get(i);
+                individualData person1 = pair.get(1);
+                individualData person2= pair.get(0);
+                System.out.println(ANSI_WHITE + "Pair " + (i+1) + ": " + (person1.getName()) +
+                    ", and " + person2.getName());
+
+                    }
+            }
     }
 }
