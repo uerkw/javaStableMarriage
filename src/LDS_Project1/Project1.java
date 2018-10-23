@@ -3,7 +3,7 @@ package LDS_Project1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Stack;
+import ArrayStack.*;
 
 /**
  * @author Kyle Uerkwitz
@@ -56,7 +56,15 @@ class Project1 {
 
             /* Pass off to another method to process the data. Each instance of a person will have their
              "spouse" field filled, so no ArrayList changes need to be made */
-            matchingAlgorithm(groupA, groupB, pairingSize);
+            try{
+                matchingAlgorithm(groupA, groupB, pairingSize);
+            } catch (StackOverflowException OFlowExcept){
+                OFlowExcept.printStackTrace();
+                System.out.println("A Stack Overflow occurred during the algorithm.");
+            } catch (StackUnderflowException UFlowExcept){
+                UFlowExcept.printStackTrace();
+                System.out.println("A Stack Underflow occurred during the algorithm.");
+            }
 
             // Add all matches to one main ArrayList
             ArrayList<ArrayList<individualData>> Matches = new ArrayList<ArrayList<individualData>>();
@@ -95,17 +103,18 @@ class Project1 {
      * @param pairingSize   The provided pairing size for each
      */
     private static void matchingAlgorithm(ArrayList<individualData> groupA, ArrayList<individualData> groupB,
-                                          int pairingSize) {
+                                          int pairingSize) throws StackOverflowException, StackUnderflowException{
 
-        //Initialize a stack for backtracking
-        Stack<individualData> soloPeople = new Stack<individualData>();
+        //Initialize a stack for backtracking purposes
+        ArrayStack soloPeople = new ArrayStack();
         for (int i = pairingSize - 1; i >= 0; i--) {
             soloPeople.push(groupA.get(i));
         }
-        while (!soloPeople.empty()) {
+        while (!soloPeople.isEmpty()) {
 
             //Access the first person in the stack
-            individualData initialPerson = soloPeople.pop();
+            individualData initialPerson = (individualData)soloPeople.top();
+            soloPeople.pop();
 
             for (int i = 0; i < pairingSize && !initialPerson.getEngaged(); i++) {
                 //Get the first person in the preferences, set up a few variables for use
