@@ -15,12 +15,6 @@ import java.util.ArrayList;
  *  the given test file.
  */
 class FileUtilities {
-    // Use Colors from beginning of Project1.java
-    private static final String ANSI_RED = Project1.ANSI_RED;
-    private static final String ANSI_YELLOW = Project1.ANSI_YELLOW;
-    private static final String ANSI_CYAN = Project1.ANSI_CYAN;
-    private static final String ANSI_WHITE = Project1.ANSI_WHITE;
-
 
     /**
      * Returns a pairing size that is read from the test file. The argument must
@@ -38,9 +32,9 @@ class FileUtilities {
         try{
             pairingSize = (Integer.valueOf(bufferedReader.readLine()));}
         catch (NullPointerException nullExcept) {
-            System.out.println(ANSI_YELLOW + "NullPointerException reached in 'assignPairing' ");
+            System.out.println("NullPointerException reached in 'assignPairing' ");
         } catch (IOException IOExcept){
-            System.out.println(ANSI_YELLOW + "IOException reached: File Not Found");
+            System.out.println("IOException reached: File Not Found");
         }
         return pairingSize;
     }
@@ -59,8 +53,8 @@ class FileUtilities {
             FileReader FileReader = new FileReader(filePath);
             bufferedReader = new BufferedReader(FileReader);
         } catch (FileNotFoundException fileException){
-            System.out.println(ANSI_YELLOW + "Error in file read: File not found.");
-            System.out.println(ANSI_RED + "--> System exiting, file cannot be reached");
+            System.out.println("Error in file read: File not found.");
+            System.out.println("--> System exiting, file cannot be reached");
             System.exit(1);
         }
         return bufferedReader;
@@ -96,21 +90,20 @@ class FileUtilities {
 
     /**
      * A test method, made with the idea in mind to quickly print out the pairing size
-     * and raw pairing data for debugging purposes. Uses cyan text to differentiate
-     * from errors, exceptions, and desired data.
+     * and raw pairing data for debugging purposes.
      *
      * @param pairingSize   the desired pairing size for the file
      * @param pairingData   array full of data from the input file
      */
     static void testCurrentData(int pairingSize, ArrayList<individualData> pairingData){
-        System.out.println(ANSI_CYAN + "Pairing Size = " + pairingSize);
+        System.out.println("Pairing Size = " + pairingSize);
         System.out.println("Array Data:");
         int dataSize = pairingData.size();
         if (pairingData != null) {
             for(int i = 0; i < dataSize; i++){
-                System.out.println(ANSI_WHITE + (pairingData.get(i).getName()));
+                System.out.println(pairingData.get(i).getName() );
                 for(int j = 0; j < pairingSize; j++ ) {
-                    System.out.print(ANSI_WHITE + (pairingData.get(i).getPreferences())[j] + " ");
+                    System.out.print((pairingData.get(i).getPreferences())[j] + " ");
                 }
                 System.out.println("");
             }
@@ -118,7 +111,6 @@ class FileUtilities {
     }
     /**
      * Deriving from testCurrentData, this method provides a way to easily print the final data given in one ArrayList.
-     * Uses cyan text to differentiate from errors, exceptions, and desired data.
      *
      * @param pairingSize   the desired pairing size for the file
      * @param pairingData   array composing of two ArrayLists (one for each group) holding the member's data.
@@ -126,14 +118,14 @@ class FileUtilities {
     static void printFinalData(int pairingSize, ArrayList<ArrayList<individualData>> pairingData){
         System.out.println();
 
-        System.out.println(ANSI_CYAN+ "Completed Pairing Data: ");
+        System.out.println("Completed Pairing Data: ");
         int dataSize = pairingData.size();
         if (pairingData != null) {
             for(int i = 0; i < dataSize; i++){
                 ArrayList<individualData> pair = pairingData.get(i);
                 individualData person1 = pair.get(1);
                 individualData person2= pair.get(0);
-                System.out.println(ANSI_WHITE + "Team " + (i+1) + ": " + (person1.getName()) +
+                System.out.println("Team " + (i+1) + ": " + (person1.getName()) +
                     " and " + person2.getName());
 
                     }

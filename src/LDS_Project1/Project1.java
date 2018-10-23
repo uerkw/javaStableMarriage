@@ -15,12 +15,6 @@ import java.util.Stack;
  */
 
 class Project1 {
-    // Defining colors to be used in System Printing to
-    // keep track of errors and aid debugging in console
-    static final String ANSI_RED = "\u001B[31m";
-    static final String ANSI_CYAN = "\u001B[36m";
-    static final String ANSI_YELLOW = "\u001B[33m";
-    static final String ANSI_WHITE = "\u001B[37m";
 
     // Defining the filepath. Editing this will change the file access for the whole program.
     private static final String inputFilePath = "src/Project1TestData.txt";
@@ -55,30 +49,36 @@ class Project1 {
             /* Printing the groups to check that they have been properly formatted by the user beforehand
             as well as by the program. Utilizes the testing method created in FileUtilities.java */
 
-            System.out.println(ANSI_YELLOW + "Group A:");
+            System.out.println("Group A:");
             FileUtilities.testCurrentData(pairingSize, groupA);
-            System.out.println(ANSI_YELLOW + "Group B:");
+            System.out.println("Group B:");
             FileUtilities.testCurrentData(pairingSize, groupB);
 
-            // Pass off to another method to process the data
+            /* Pass off to another method to process the data. Each instance of a person will have their
+             "spouse" field filled, so no ArrayList changes need to be made */
             matchingAlgorithm(groupA, groupB, pairingSize);
 
-            // Add them all to an array and print
-            ArrayList Matches = new ArrayList();
+            // Add all matches to one main ArrayList
+            ArrayList<ArrayList<individualData>> Matches = new ArrayList<ArrayList<individualData>>();
 
             for (int i = 0; i < groupB.size(); i++){
-                ArrayList tempMatches = new ArrayList();
+
+                // Use a temporary arrayList to hold both people of the pairing
+                ArrayList<individualData> tempMatches = new ArrayList<individualData>();
                 tempMatches.add(groupB.get(i));
                 tempMatches.add(groupB.get(i).getSpouse());
+
+                /* Add this temporary arrayList to the main List, each index of
+                'Matches' holds the pair for the printing method to process */
                 Matches.add(tempMatches);
             }
+            //Finally, pass the main ArrayList off to be printed
             FileUtilities.printFinalData(pairingSize, Matches);
 
 
         } catch(IOException IOe) {
             IOe.printStackTrace();
-            System.out.println(ANSI_RED + "The program encountered an error in " + ANSI_YELLOW +
-                    "creating pairing data");
+            System.out.println("The program encountered an error in creating pairing data");
         }
 
     }
@@ -94,7 +94,8 @@ class Project1 {
      * @param groupB    The second provided group, each is matched to a member of Group A
      * @param pairingSize   The provided pairing size for each
      */
-    private static void matchingAlgorithm(ArrayList<individualData> groupA, ArrayList<individualData> groupB, int pairingSize) {
+    private static void matchingAlgorithm(ArrayList<individualData> groupA, ArrayList<individualData> groupB,
+                                          int pairingSize) {
 
         //Initialize a stack for backtracking
         Stack<individualData> soloPeople = new Stack<individualData>();
@@ -146,7 +147,8 @@ class Project1 {
                     personDesired.setSpousePreference(preferanceOfProposer);
 
                 } else {
-                    if ((preferanceOfProposer < currentSpouse_preferance) && (i >= initialPerson.getSpousePreference())) {
+                    if ((preferanceOfProposer < currentSpouse_preferance)&&(i >= initialPerson.getSpousePreference()))
+                    {
 
                         //Current spouse (if exists) is now single, added to stack
                         if (currentSpouse != null) {
@@ -163,7 +165,6 @@ class Project1 {
                         personDesired.setSpousePreference(preferanceOfProposer);
                     }
                 }
-
             }
         }
     }
