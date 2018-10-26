@@ -27,7 +27,7 @@ public class ArrayStack implements StackInterface {
 	 */
 	public ArrayStack() {
 		// TODO Auto-generated constructor stub
-		this(10);
+		this(150);
 	}
 
 	/* (non-Javadoc)
