@@ -18,6 +18,8 @@ class Project1 {
 
     // Defining the filepath. Editing this will change the file access for the whole program.
     private static final String inputFilePath = "src/Project1TestData.txt";
+    //private static final String inputFilePath = "src/newTestdata0.txt";
+    //private static final String inputFilePath = "src/testData_2.txt";
 
 
     public static void main(String args[]){
@@ -177,4 +179,5 @@ class Project1 {
             }
         }
     }
+
 }
