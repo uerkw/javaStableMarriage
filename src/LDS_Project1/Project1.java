@@ -23,7 +23,8 @@ class Project1 {
 
 
     public static void main(String args[]){
-
+        long startTime = 0;
+        long endTime = 0;
 
         // Open file and assign a new bufferedReader from inputFilePath
         BufferedReader bufferedReader = FileUtilities.assignReader(inputFilePath);
@@ -51,15 +52,19 @@ class Project1 {
             /* Printing the groups to check that they have been properly formatted by the user beforehand
             as well as by the program. Utilizes the testing method created in FileUtilities.java */
 
+            /*
             System.out.println("Group A:");
             FileUtilities.testCurrentData(pairingSize, groupA);
             System.out.println("Group B:");
             FileUtilities.testCurrentData(pairingSize, groupB);
+            */
 
             /* Pass off to another method to process the data. Each instance of a person will have their
              "spouse" field filled, so no ArrayList changes need to be made */
             try{
+                startTime = System.nanoTime();
                 matchingAlgorithm(groupA, groupB, pairingSize);
+                endTime = System.nanoTime();
             } catch (StackOverflowException OFlowExcept){
                 OFlowExcept.printStackTrace();
                 System.out.println("A Stack Overflow occurred during the algorithm.");
@@ -90,7 +95,7 @@ class Project1 {
             IOe.printStackTrace();
             System.out.println("The program encountered an error in creating pairing data");
         }
-
+        System.out.println((endTime - startTime)/1_000_000_000.0);
     }
 
     /**
